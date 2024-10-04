@@ -1,0 +1,16 @@
+Explanation of Features:
+Constructors:
+
+Constructor 1: Handles the case where no information is provided (placeholders are used).
+Constructor 2: Allows the vendor to create a ticket with only the movie title and seat number, defaulting the price to $10.00.
+Constructor 3: Lets the vendor create a ticket with full details (movie title, seat number, and custom price).
+Getters and Setters:
+
+Getters and setters allow the vendor to retrieve and modify ticket information, such as the movie title, seat number, or ticket price.
+Additional Methods:
+
+applyDiscount(double percentage): Reduces the ticket price by a given percentage.
+upgradeToPremium(): Increases the ticket price by $5.00 when the customer upgrades to a premium screening.
+toString() Method:
+
+Provides a formatted string with the ticket details (movie title, seat number, and ticket price). This method is useful when the vendor needs to display or print the ticket information for the customer.

@@ -1,0 +1,4 @@
+Key Points:
+The class allows the vendor to handle various ticket scenarios: full information, partial information with placeholders, and modifications.
+The class also provides additional functionalities such as applying discounts and upgrading to premium screenings.
+The toString() method is automatically invoked when printing the ticket object, providing a user-friendly view of the ticket details.
