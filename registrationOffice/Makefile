@@ -37,7 +37,11 @@ clean:
 
 # Run the program
 run:
-	java -cp $(BIN_DIR):. $(MAIN_CLASS)
+	java -cp $(BIN_DIR):. $(MAIN_CLASS) $(ARGS)
+
+# Run the program using the JAR file
+run-jar: jar
+	java -jar $(JAR_NAME) $(ARGS)
 
 # Run the Verification class (for testing purposes)
 run-verification:
