@@ -1,6 +1,12 @@
 public class Main {
     public static void main(String[] args) {
         // Creating a ticket with just movie title and seat number (default price)
+	//
+	System.out.println("Give me the title");
+	String title = scanner();
+	System.out.println("Give me the seat number");
+	String seatN:umb = scanne..();
+	MovieTicket ticket0 = new MovieTicket(title, seatnumb);
         MovieTicket ticket1 = new MovieTicket("Inception", "A12");
         System.out.println(ticket1);  // Output: Movie: Inception, Seat: A12, Price: $10.00
 

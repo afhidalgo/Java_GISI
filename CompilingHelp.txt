@@ -1,0 +1,24 @@
+Place the java files into a src folder
+Compile setting the classpath to bin folder:
+find src -name "*.java" | xargs javac -cp bin -d bin
+
+running (with packages hierarchy
+java -cp bin package1.package2.main.java
+
+Once we have the bin fodler we create the javadoc
+find src -nam2 "*.java" | xargs javadoc -d doc
+
+Create the manifest.txt
+Manifest-Version: 1.0
+Main-Class: census.CensusManager
+Class-Path: .
+
+
+Create the Readme.md
+Use Ctrl + Shift + V  in VS Code to toggle to render view or raw markdown view
+
+Create JAR file
+jar cvfm census.jar manifest.txt -C bin . README.md -C doc .
+
+java -jar census.jar
+
