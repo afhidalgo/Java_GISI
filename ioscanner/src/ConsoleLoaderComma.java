@@ -15,6 +15,7 @@ public class ConsoleLoaderComma {
                 String surname1 = scanner.next();
                 String surname2 = scanner.next();
                 String ageStr = scanner.next();
+                //int age = scanner.nextInt();
 
                 // Check if we have exactly four values, and no more
                 if (scanner.hasNext()) {

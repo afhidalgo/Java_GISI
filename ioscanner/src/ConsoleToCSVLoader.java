@@ -17,7 +17,8 @@ public class ConsoleToCSVLoader {
 
         Person person = new Person(name, surname1, surname2, age);
 
-        try (FileWriter writer = new FileWriter(filePath, true)) {
+        
+        try (FileWriter writer = new FileWriter(filePath, true)){
             writer.write(name + "," + surname1 + "," + surname2 + "," + age + "\n");
         } catch (IOException e) {
             System.out.println("Error writing to file: " + e.getMessage());
@@ -28,7 +29,7 @@ public class ConsoleToCSVLoader {
 
     public static void main(String[] args) {
         ConsoleToCSVLoader consoleToCSVLoader = new ConsoleToCSVLoader();
-        Person person = consoleToCSVLoader.loadPersonAndSaveToCSV("new.csv"); // Adjust file path as needed
+        Person person = consoleToCSVLoader.loadPersonAndSaveToCSV("newclass.csv"); // Adjust file path as needed
         System.out.println("Person loaded from console and saved to CSV:");
         System.out.println(person); // Assuming `Person` class has a meaningful `toString` method
     }
