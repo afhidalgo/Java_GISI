@@ -5,6 +5,17 @@ import java.io.IOException;
 import java.io.File;
 import java.io.FileWriter;
 
+/**
+ * [Description of the method/class/field]
+ * 
+ * @param paramName [Description of the parameter]
+ * @return [Description of the return value, if applicable]
+ * @throws ExceptionType [Condition under which the exception is thrown]
+ * @author Ansdrés F. Hidalgo
+ * @version [Version number]
+ * @since [Version or date]
+ */
+
 public class RegistrationOffice
 {
     private ArrayList<Inhabitant> inhabitantsCensus = new ArrayList<>();
@@ -36,20 +47,29 @@ public class RegistrationOffice
         return sum;
     }
 
+    /**
+     * Function to add Inhabitants objects
+     * 
+     * @param paramName [Description of the parameter]
+     * @return [Description of the return value, if applicable]
+     * @throws ExceptionType [Condition under which the exception is thrown]
+     * @author Ansdrés F. Hidalgo
+     * @version [Version number]
+     * @since [Version or date]
+     */
+
     private void loadInhabitants(){ 
         try{
-        File file = new File("census.csv");
-        // Create the file if it does not exist: 
-        file.createNewFile();
-        Scanner sc = new Scanner(file); 
-        sc.useDelimiter(",|\n"); 
-        while(sc.hasNext()){
-            Inhabitant inhabitant = new Inhabitant(sc.next(),
-                                                   sc.next(),
-                                                   sc.next());
-            inhabitantsCensus.add(inhabitant);
+            File file = new File("census.csv");
+            // Create the file if it does not exist: 
+            file.createNewFile();
+            Scanner sc = new Scanner(file); 
+            sc.useDelimiter(",|\n"); 
+            while(sc.hasNext()){
+                Inhabitant inhabitant = new Inhabitant(sc.next(), sc.next(), sc.next());
+                inhabitantsCensus.add(inhabitant);
         }
-        sc.close();
+            sc.close();
         }catch(IOException ex){
              System.out.println("No inhabitants registered");
         }
