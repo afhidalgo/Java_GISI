@@ -1,0 +1,39 @@
+@startuml
+skinparam classAttributeIconSize 0
+class StartProgram{
++ {static} main(args : String[]) : void
+}
+class Inhabitant{
+- name : String
+- surname1 : String
+- surname2 : String
++ Inhabitant()
++ Inhabitant(name : String, surname1 : String, surname2 : String)
++ setName(name : String) : void
++ setSurname1(surname1 : String) : void
++ setSurname2(surname2 : String) : void
++ getName() : String
++ getSurname1() : String
++ getSurname2() : String
+}
+class RegistrationOffice{
+- inhabitantsCensus : ArrayList<Inhabitant>
++ RegistrationOffice()
++ addInhabitant(inhabitant : Inhabitant) : void
++ getInhabitantsCensus() : ArrayList<Inhabitant>
++ calculatePopulationNumber() : int
+- loadInhabitants() : void
++ dumpContacts() : void
+}
+class UserInterface{
++ {static} perform(instruction : String[]) : void
+- {static} showRegistrationOffice(census : RegistrationOffice) : void
+}
+class Verification{
++ {static} main(args : String[]) : void
++ {static} performVerificationSett() : void
++ {static} performVerificationConst() : void
++ {static} performVerificationCensus() : void
++ {static} performVerificationCensusFile() : void
+}
+@enduml
