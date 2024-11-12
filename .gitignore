@@ -1,0 +1,69 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Generated files
+*.iml
+*.project
+*.classpath
+
+# IDE-specific files
+.idea/
+*.vscode/
+*.settings/
+
+# Build directories
+/bin/
+/out/
+/build/
+target/
+
+# Maven specific
+.mvn/
+.settings/
+*.mvn/
+
+# Gradle specific
+.gradle/
+build/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Generated documentation
+docs/
+javadoc/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Test result files
+test-output/
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Dependency directories
+lib/
+node_modules/
+
+# Other common files
+*.log
+*.lock
+*.pyc
+*.csv
+*.env
+*.json
+*.cache
