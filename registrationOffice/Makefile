@@ -1,7 +1,7 @@
 # Variables
 SRC_DIR = src
 BIN_DIR = bin
-JAR_NAME = CensusApp.jar
+JAR_NAME = RegOffice.jar
 MAIN_CLASS = application.StartProgram
 CHECKS_CLASS = checks.Verification
 JAVADOC_DIR = docs
