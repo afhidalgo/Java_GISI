@@ -1,0 +1,63 @@
+//Explanation of the Code:
+//Inheritance:
+
+//- PassengerVehicle and Van inherit from Vehicle.
+//-Vehicle provides the common attributes (brand, model, basePrice) and defines an abstract method for calculating the final price.
+//Polymorphism:
+
+//The calculateFinalPrice method is overridden in both PassengerVehicle and Van.
+//Dealer Class:
+
+//The Dealer class manages a list of vehicles (both passenger vehicles and vans).
+//It can display all vehicles and calculate the total price, leveraging polymorphism.
+//Test in main:
+
+//A Dealer object is created, and various PassengerVehicle and Van objects are added to its catalog.
+//The vehicles are displayed, and the total price is calculated.
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Dealer {
+    private List<Vehicle> vehicles;
+
+    public Dealer() {
+        this.vehicles = new ArrayList<>();
+    }
+
+    public void addVehicle(Vehicle vehicle) {
+        vehicles.add(vehicle);
+    }
+
+    public void displayVehicles() {
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle);
+        }
+    }
+
+    public double calculateTotalPrice() {
+        double total = 0;
+        for (Vehicle vehicle : vehicles) {
+            total += vehicle.calculateFinalPrice();
+        }
+        return total;
+    }
+
+    public static void main(String[] args) {
+        Dealer dealer = new Dealer();
+
+        PassengerVehicle car1 = new PassengerVehicle("Toyota", "Corolla", 20000, 5);
+        PassengerVehicle car2 = new PassengerVehicle("Ford", "Explorer", 30000, 7);
+        Van van1 = new Van("Mercedes", "Sprinter", 40000, 8);
+
+        dealer.addVehicle(car1);
+        dealer.addVehicle(car2);
+        dealer.addVehicle(van1);
+
+        System.out.println("Vehicles in the catalog:");
+        dealer.displayVehicles();
+
+        System.out.println("\nTotal price of all vehicles: " + dealer.calculateTotalPrice());
+    }
+}

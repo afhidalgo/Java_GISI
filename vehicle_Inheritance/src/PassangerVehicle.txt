@@ -1,0 +1,26 @@
+public class PassengerVehicle extends Vehicle {
+    private int numberOfSeats;
+
+    public PassengerVehicle(String brand, String model, double basePrice, int numberOfSeats) {
+        super(brand, model, basePrice);
+        this.numberOfSeats = numberOfSeats;
+    }
+
+    public int getNumberOfSeats() {
+        return numberOfSeats;
+    }
+
+    @Override
+    public double calculateFinalPrice() {
+        if (numberOfSeats <= 5) {
+            return getBasePrice();
+        } else {
+            return getBasePrice() * (1 + 0.10 * (numberOfSeats - 5));
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Number of Seats: " + numberOfSeats + ", Final Price: " + calculateFinalPrice();
+    }
+}

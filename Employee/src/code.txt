@@ -1,0 +1,87 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+abstract class Employee {
+    protected String name;
+    protected double baseSalary = 1000;
+
+    public Employee(String name) {
+        this.name = name;
+    }
+
+    public abstract double calculateSalary();
+
+    @Override
+    public String toString() {
+        return name + ": €" + calculateSalary();
+    }
+}
+
+class Manager extends Employee {
+    private int yearsAsManager;
+
+    public Manager(String name, int yearsAsManager) {
+        super(name);
+        this.yearsAsManager = yearsAsManager;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return baseSalary + (500 * yearsAsManager);
+    }
+}
+
+class SalesRepresentative extends Employee {
+    private int trips;
+
+    public SalesRepresentative(String name, int trips) {
+        super(name);
+        this.trips = trips;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return baseSalary + (300 * trips);
+    }
+}
+
+class RegularEmployee extends Employee {
+    public RegularEmployee(String name) {
+        super(name);
+    }
+
+    @Override
+    public double calculateSalary() {
+        return baseSalary;
+    }
+}
+
+public class Company {
+    public static void main(String[] args) {
+        Random random = new Random();
+        List<Employee> employees = new ArrayList<>();
+
+        // Add 2 managers
+        for (int i = 1; i <= 2; i++) {
+            int yearsAsManager = random.nextInt(11); // Random number between 0 and 10
+            employees.add(new Manager("Manager " + i, yearsAsManager));
+        }
+
+        // Add 5 sales representatives
+        for (int i = 1; i <= 5; i++) {
+            int trips = random.nextInt(11); // Random number between 0 and 10
+            employees.add(new SalesRepresentative("SalesRep " + i, trips));
+        }
+
+        // Add 15 regular employees
+        for (int i = 1; i <= 15; i++) {
+            employees.add(new RegularEmployee("Employee " + i));
+        }
+
+        // Print salaries
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
+    }
+}

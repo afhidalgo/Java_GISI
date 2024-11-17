@@ -1,0 +1,22 @@
+public class Van extends Vehicle {
+    private double capacity;
+
+    public Van(String brand, String model, double basePrice, double capacity) {
+        super(brand, model, basePrice);
+        this.capacity = capacity;
+    }
+
+    public double getCapacity() {
+        return capacity;
+    }
+
+    @Override
+    public double calculateFinalPrice() {
+        return getBasePrice() * 0.5 * Math.cbrt(capacity);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Capacity: " + capacity + " m3, Final Price: " + calculateFinalPrice();
+    }
+}
