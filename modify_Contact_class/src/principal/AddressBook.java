@@ -57,7 +57,7 @@ public void modifyContact(String name, String newName, String newPhoneNumber, St
     while(index != -1){
 	    Person person = contacts.get(index);
 	    if (newName != null && !newName.isEmpty()) person.setName(newName);
-            if (newPhoneNumber != null && !newPhoneNumber.isEmpty()) person.setPhoneNumer(newPhoneNumber);
+        if (newPhoneNumber != null && !newPhoneNumber.isEmpty()) person.setPhoneNumer(newPhoneNumber);
 	    if(newEmail != null && !newEmail.isEmpty()) person.setEmail(newEmail);
 
 	   saveContacts(); //save chnages to the file

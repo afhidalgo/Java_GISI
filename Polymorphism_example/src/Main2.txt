@@ -1,0 +1,28 @@
+import principal.*;
+import domain.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Company company = new Company();
+
+        // Add employees to the company
+        Employee alice = new FullTimeEmployee("Alice", 5000);
+        Employee bob = new PartTimeEmployee("Bob", 20, 80);
+
+        company.addEmployee(alice);
+        company.addEmployee(bob);
+
+        // Use a method to compute individual salaries
+        System.out.println("Alice's salary: $" + computeSalary(alice));
+        System.out.println("Bob's salary: $" + computeSalary(bob));
+
+        // Calculate total salary
+        double totalSalary = company.calculateTotalSalary();
+        System.out.println("Total salary paid by the company: $" + totalSalary);
+    }
+
+    // Function to compute salary, independent of the employee type
+    public static double computeSalary(Employee employee) {
+        return employee.calculateSalary();
+    }
+}
