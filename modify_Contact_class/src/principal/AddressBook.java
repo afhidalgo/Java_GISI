@@ -1,4 +1,5 @@
 package principal;
+import domain.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -46,7 +47,15 @@ public class AddressBook {
 
     public void removeContact(String name) {
         // Create a target person with just the name to remove
-        ....
+        Person target = new Person(name, "", "");
+        boolean removed = contacts.remove(target);
+        
+        if (removed) {
+            saveContacts();
+            System.out.println("Contact removed successfully.");
+        } else {
+            System.out.println("Contact not found: " + name);
+        }
     }
 
 public void modifyContact(String name, String newName, String newPhoneNumber, String newEmail) {
@@ -54,10 +63,10 @@ public void modifyContact(String name, String newName, String newPhoneNumber, St
     int index = contacts.indexOf(target);
 
     //Update attributes
-    while(index != -1){
+    if(index != -1){
 	    Person person = contacts.get(index);
 	    if (newName != null && !newName.isEmpty()) person.setName(newName);
-        if (newPhoneNumber != null && !newPhoneNumber.isEmpty()) person.setPhoneNumer(newPhoneNumber);
+        if (newPhoneNumber != null && !newPhoneNumber.isEmpty()) person.setPhoneNumber(newPhoneNumber);
 	    if(newEmail != null && !newEmail.isEmpty()) person.setEmail(newEmail);
 
 	   saveContacts(); //save chnages to the file

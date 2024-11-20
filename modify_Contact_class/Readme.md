@@ -1,0 +1,2 @@
+# Instructions
+This Java example requires you to create a Makefile to compile and run it from the Linux console. Additionally, it contains a compilation error that you will encounter after using the Makefile to compile the code.
