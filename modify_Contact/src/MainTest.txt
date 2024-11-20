@@ -1,0 +1,99 @@
+class AddressBook {
+    private ArrayList<Person> contacts;
+    private final String filePath = "contacts.csv";
+
+    public AddressBook() {
+        contacts = new ArrayList<>();
+        loadContacts();
+    }
+
+    private void loadContacts() {
+        try (Scanner scanner = new Scanner(new File(filePath))) {
+            while (scanner.hasNextLine()) {
+                String[] data = scanner.nextLine().split(",");
+                if (data.length == 3) {
+                    contacts.add(new Person(data[0], data[1], data[2]));
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found. Starting with an empty address book.");
+        }
+    }
+
+    private void saveContacts() {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            for (Person person : contacts) {
+                writer.write(person.toString() + "\n");
+            }
+        } catch (IOException e) {
+            System.out.println("Error saving contacts: " + e.getMessage());
+        }
+    }
+
+    // Add contact without duplicates
+    public void addContact(Person person) {
+        if (!contacts.contains(person)) {
+            contacts.add(person);
+            saveContacts();
+        } else {
+            System.out.println("Contact already exists: " + person.name);
+        }
+    }
+
+    // Remove a contact by name
+    public void removeContact(String name) {
+        contacts.removeIf(person -> person.name.equalsIgnoreCase(name));
+        saveContacts();
+    }
+
+
+
+    // Modify a contact using indexOf
+    public void modifyContact(String name, String newName, String newPhoneNumber, String newEmail) {
+        Person target = new Person(name, "", ""); // Create a Person object with name only for comparison
+        int index = this.contacts.indexOf(target);
+
+        if (index != -1) {
+            Person person = contacts.get(index);
+            if (newName != null && !newName.isEmpty()) person.name = newName;
+            if (newPhoneNumber != null && !newPhoneNumber.isEmpty()) person.phoneNumber = newPhoneNumber;
+            if (newEmail != null && !newEmail.isEmpty()) person.email = newEmail;
+            this.saveContacts();
+        } else {
+            System.out.println("Contact not found: " + name);
+        }
+    }
+
+    public Person getContact(String name)
+    {
+        Person target = new Person(name, "", ""); // Create a Person object with name only for comparison
+        int index = this.contacts.indexOf(target);
+        if (index != -1) {
+            Person person = contacts.get(index);
+            return person;
+        }
+        else {
+            System.out.println("Contact not found: " + name);
+        }
+    }
+
+
+
+    public void displayContacts() {
+        for (Person person : contacts) {
+            System.out.println("Name: " + person.name + ", Phone: " + person.phoneNumber + ", Email: " + person.email);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        AddressBook addressBook = new AddressBook();
+
+        Person person = addressBook.getContact("Andrés");
+
+        person.name = name;
+        person.surname = surname;
+    }
+
+}

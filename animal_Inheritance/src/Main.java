@@ -11,9 +11,11 @@ class Animal {
 }
 
 class Dog extends Animal {
-    Dog(String name) {
+	String age;
+    Dog(String name , String age) {
         // Call parent class constructor
         super(name);
+	this.age = age;
     }
 
     @Override
@@ -26,7 +28,7 @@ class Dog extends Animal {
 
 public class Main {
     public static void main(String[] args) {
-        Dog dog = new Dog("Buddy");
+        Dog dog = new Dog("Buddy", "3");
         dog.sound();
     }
 }
