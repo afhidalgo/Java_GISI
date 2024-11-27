@@ -1,0 +1,23 @@
+public class BankAccount {
+    private String accountHolder;
+    private double balance;
+
+    public BankAccount(String accountHolder, double initialBalance) {
+        this.accountHolder = accountHolder;
+        this.balance = initialBalance;
+    }
+
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if (amount > balance) {
+            throw new InsufficientFundsException(
+                "Insufficient funds: Attempted to withdraw " + amount + ", but only " + balance + " is available."
+            );
+        }
+        balance -= amount;
+        System.out.println("Withdrawal successful. New balance: " + balance);
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}

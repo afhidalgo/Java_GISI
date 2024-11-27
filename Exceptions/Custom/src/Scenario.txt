@@ -1,0 +1,2 @@
+Scenario: Insufficient Funds in a Bank Account
+Suppose you're building a banking system where users can withdraw money from their accounts. A meaningful custom exception, InsufficientFundsException, can indicate that the user is trying to withdraw more money than their account balance.

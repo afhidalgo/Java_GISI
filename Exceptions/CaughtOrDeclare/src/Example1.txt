@@ -1,0 +1,7 @@
+public void readFile() {
+    try {
+        FileReader reader = new FileReader("file.txt");
+    } catch (IOException e) {
+        System.out.println("File not found: " + e.getMessage());
+    }
+}

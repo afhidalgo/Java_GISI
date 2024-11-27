@@ -1,0 +1,9 @@
+public class ExampleUnchecked {
+    public void riskyMethod() throws IllegalArgumentException {
+        throw new IllegalArgumentException("Invalid argument");
+    }
+
+    public static void main(String[] args) {
+        new Example().riskyMethod(); // No try-catch required, program will crash
+    }
+}

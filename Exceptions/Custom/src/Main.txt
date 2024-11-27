@@ -1,0 +1,12 @@
+public class Main {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount("John Doe", 500.0);
+
+        try {
+            System.out.println("Current balance: " + account.getBalance());
+            account.withdraw(600.0); // This will throw InsufficientFundsException
+        } catch (InsufficientFundsException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}

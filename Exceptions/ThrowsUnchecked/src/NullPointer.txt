@@ -1,0 +1,13 @@
+public class NameProcessor {
+    public void processName(String name) {
+        if (name == null) {
+            throw new NullPointerException("Name cannot be null.");
+        }
+        System.out.println("Processing name: " + name);
+    }
+
+    public static void main(String[] args) {
+        NameProcessor processor = new NameProcessor();
+        processor.processName(null); // Throws NullPointerException
+    }
+}

@@ -1,0 +1,13 @@
+public class ExampleHandle {
+    public void riskyMethod() throws IOException {
+        throw new IOException("File error");
+    }
+
+    public static void main(String[] args) {
+        try {
+            new Example().riskyMethod(); // Exception handled here
+        } catch (IOException e) {
+            System.out.println("Caught exception: " + e.getMessage());
+        }
+    }
+}

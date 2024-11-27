@@ -1,0 +1,17 @@
+public class ExamplePropagate {
+    public void riskyMethod() throws IOException {
+        throw new IOException("File error");
+    }
+
+    public void callerMethod() throws IOException {
+        new Example().riskyMethod(); // No try-catch here
+    }
+
+    public static void main(String[] args) {
+        try {
+            new Example().callerMethod(); // Exception caught here
+        } catch (IOException e) {
+            System.out.println("Caught exception: " + e.getMessage());
+        }
+    }
+}
