@@ -6,7 +6,7 @@ running (with packages hierarchy
 java -cp bin package1.package2.main.java
 
 Once we have the bin fodler we create the javadoc
-find src -nam2 "*.java" | xargs javadoc -d doc
+find src -name "*.java" | xargs javadoc -d doc
 
 Create the manifest.txt
 Manifest-Version: 1.0

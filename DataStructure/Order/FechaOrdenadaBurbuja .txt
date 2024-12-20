@@ -1,0 +1,62 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class FechaOrdenadaBurbuja {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<LocalDate> fechas = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        
+        System.out.println("Introduce las fechas en formato yyyy-MM-dd. Escribe 'salir' para terminar.");
+        
+        while (true) {
+            System.out.print("Introduce una fecha: ");
+            String entrada = scanner.nextLine();
+            
+            if (entrada.equalsIgnoreCase("salir")) {
+                break;
+            }
+            
+            try {
+                LocalDate fecha = LocalDate.parse(entrada, formatter);
+                fechas.add(fecha);
+            } catch (DateTimeParseException e) {
+                System.out.println("Formato inválido. Por favor, introduce una fecha en formato yyyy-MM-dd.");
+            }
+        }
+
+        // Ordenar las fechas usando el método burbuja
+        ordenarBurbuja(fechas);
+
+        // Mostrar las fechas ordenadas
+        System.out.println("\nFechas ordenadas cronológicamente:");
+        for (LocalDate fecha : fechas) {
+            System.out.println(fecha.format(formatter));
+        }
+
+        scanner.close();
+    }
+
+    /**
+     * Método para ordenar una lista de fechas usando el algoritmo de burbuja.
+     *
+     * @param fechas Lista de fechas a ordenar.
+     */
+    public static void ordenarBurbuja(ArrayList<LocalDate> fechas) {
+        int n = fechas.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (fechas.get(j).isAfter(fechas.get(j + 1))) {
+                    // Intercambiar las fechas si están en el orden incorrecto
+                    LocalDate temp = fechas.get(j);
+                    fechas.set(j, fechas.get(j + 1));
+                    fechas.set(j + 1, temp);
+                }
+            }
+        }
+    }
+}

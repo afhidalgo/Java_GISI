@@ -1,0 +1,22 @@
+public class DigitCounter {
+
+    public static void main(String[] args) {
+        int number = 12345; // Puedes cambiar este número para probar
+        System.out.println("El número " + number + " tiene " + contarDigitos(number) + " dígitos.");
+    }
+
+    /**
+     * Función recursiva para contar los dígitos de un número.
+     *
+     * @param numero El número entero.
+     * @return La cantidad de dígitos.
+     */
+    public static int contarDigitos(int numero) {
+        numero = Math.abs(numero); // Asegurarse de trabajar con el valor absoluto
+        if (numero < 10) { // Caso base: un solo dígito
+            return 1;
+        } else { // Caso recursivo: dividir el número por 10
+            return 1 + contarDigitos(numero / 10);
+        }
+    }
+}

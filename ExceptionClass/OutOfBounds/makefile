@@ -1,5 +1,5 @@
 clean:
-	rm -rf bin 
+	rm -rf bin
 compile: clean
 	mkdir -p bin
 	find src -name "*.java" | xargs javac -cp bin -d bin
